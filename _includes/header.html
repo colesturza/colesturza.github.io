@@ -33,6 +33,16 @@
                   {%- endif -%}
                 </a>
               </li>
+
+              <!-- CV link -->
+              <li class="nav-item {% if page.title == p.title %}active{% endif %}">
+                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="{{ '/assets/pdf/Cole_s_Resume.pdf' | relative_url }}">résumé</a>
+                  {%- if page.title == p.title -%}
+                  <span class="sr-only">(current)</span>
+                  {%- endif -%}
+                </a>
+              </li>
+
               {% if site.blog_name %}
               <!-- Blog -->
               <li class="nav-item {% if page.url contains 'blog' %}active{% endif %}">
@@ -43,15 +53,6 @@
                 </a>
               </li>
               {%- endif %}
-
-              <!-- CV link -->
-              <li class="nav-item {% if page.title == p.title %}active{% endif %}">
-                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="{{ '/assets/pdf/Cole_s_Resume.pdf' | relative_url }}">résumé</a>
-                  {%- if page.title == p.title -%}
-                  <span class="sr-only">(current)</span>
-                  {%- endif -%}
-                </a>
-              </li>
 
               <!-- Other pages -->
               {%- assign sorted_pages = site.pages | sort: "title" -%}

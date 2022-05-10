@@ -4,7 +4,7 @@ title: a post with math
 date: 2022-05-09 09:04:00-0600
 description: an example of a blog post with some math
 tags: formatting math
-categories: sample-posts
+categories: test-posts
 ---
 This post is a test.
 

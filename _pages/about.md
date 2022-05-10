@@ -20,4 +20,4 @@ My name is Cole Sturza (<a href='http://ipa-reader.xyz/?text=%CB%88st%C9%9Crz%C9
 
 Professionally, my interests are backend software development, DevOps, AI, machine learning, natural language processing, deep learning, and operations research. I typically enjoy topics focused on math, computer science, engineering, economics, and political science (particularly computational social choice and political economy). 
 
-I also enjoy playing soccer, skiing/snowboarding, traveling, and playing video games in my free time.
+I also enjoy playing soccer, skiing/snowboarding, cooking, listening to music, traveling, and playing video games in my free time.

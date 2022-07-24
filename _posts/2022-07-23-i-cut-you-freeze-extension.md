@@ -2,7 +2,7 @@
 layout: distill
 title: (WIP) A more Realistic Scoring Mechinism for the I-Cut-You-Freeze Protocol.
 date: 2022-07-23
-description: An overview of gerrymandering and various attempts to fix it, plus my proposed idea to add a bit more realism to a protocol attempting to make redistricting more fair.
+description: An overview of gerrymandering and various attempts to fix it, plus my proposed idea to add more realism to a protocol attempting to make redistricting fair.
 tags: math computer-science computational-social-choice political-science algorithmic-economics optimized-democracy social-choice gerrymandering redistricting cake-cutting
 categories: math-and-science-posts
 
@@ -22,8 +22,13 @@ toc:
     subsections:
       - name: What are the implications of gerrymandering?
       - name: Gerrymandering in algorithmic economics.
-  - name: Background.
+  - name: Related Works.
   - name: A more realistic scoring mechinism.
+    subsections:
+      - name: Empirical results.
+  - name: Appendix.
+    subsections:
+      - name: Author Contributions.
 ---
 
 # Introduction.
@@ -49,7 +54,7 @@ Gerrymandering in the field of Algorithmic Economics is generally viewed through
 
 ***
 
-# Background.
+# Related Works.
 
 Cake cutting aside, there are several metrics to detect gerrymandering in congressional district maps. <d-cite key="warrington2019comparison"></d-cite> compares and contrasts several metrics for detecting gerrymandering, such as the efficiency gap. The efficiency gap was first introduced by <d-cite key="mcghee2014measuring"></d-cite> and <d-cite key="stephanopoulos2015partisan"></d-cite>, with the goal of the setting a quantifiable, legal standard for what constitutes gerrymandering. The metric works off the notion of wasted votes. A wasted vote is any vote cast for the losing party in a district, or the winning party above a majority. The efficiency gap is calculated as the difference between the two parties' wasted votes divided by the total number of votes. Most of the other metrics created are extensions on the efficiency gap, but ultimately, the efforts of this metric (and potentially others to come) failed when the Supreme Court rejected the standard in its 2018 decision in Gill v. Whitford.
 
@@ -83,13 +88,24 @@ Where $c$ is a non-negative real number. Using the sigmoid function as our scori
 
 {% include figure.html path="assets/img/i-cut-you-freeze-algorithm-non-geometric-sigmoid.png" %}
 
+On property we would like to retain from the original procedure is that it is monotonically increasing with respect to $s_{1}$. It is important that any new I-cut-you-freeze procedure retain this property because with more loyalty your chances of winning more districts should only increase or stay the same. This is indead the case for any general nondecreasing function $h:[0,1] \rightarrow [0,1]$. The proof that any I-cut-you-freeze procedure using a general nondecreasing function $h:[0,1] \rightarrow [0,1]$ retains the monotonicity property is included in the appendix.  
+
+## Empirical results.
+
+{% include figure.html path="assets/img/figure_one.png" %}
+
+{% include figure.html path="assets/img/figure_two.png" %}
+
+{% include figure.html path="assets/img/figure_three.png" %}
+
 ***
 
 # Appendix
 
 The original paper written as a final project for Rafael Frongillo's Algorithmic Economics class at the University of Colorado Boulder can be found [here](/assets/pdf/Frozen_Cake.pdf).
 
-## Proof that procedure 2 is monotonically increasing w.r.t $s_{1}$.
+## Proof that procedure 2 is monotonically increasing w.r.t. $s_{1}$.
+
 ### *Proof by Induction:*
 Let the function $f(k, s_1, A)$ be the output of $\text{GAME}_{2}(k, s_1, A)$ when the two players are playing optimally. Let $h(x)$ be a general nondecreasing function such that $h:[0,1] \rightarrow [0,1]$. Lastly, let $$\mathcal{X}_k(s) = \{ x_1 \dots x_k : x_i \in [0, 1], \sum x_i = s \}$$. Then we have that
 
@@ -123,8 +139,8 @@ $$
 
 Therefore, $f(k, s_{1}, A) \leq f(k, s_{1}^{\prime}, A)$ if $s_{1} < s_{1}^{\prime}$ via induction. **Q.E.D.**
 
-## Author Contributions
+## Author Contributions.
 
 - **Rafael Frongillo:** Helped progess the idea past the intial project and greatly with the proof that procedure 2 is monotonically increasing w.r.t $s_{1}$.
 
-- **Alex Book:** Helped write a large portion the introduction and background sections. Was part of the initial project that spured the idea for this one.
+- **Alex Book:** Helped write a large portion of the introduction and related works sections. Was part of the initial project that spured the idea for this one.

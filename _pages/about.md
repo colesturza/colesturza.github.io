@@ -19,6 +19,6 @@ My name is Cole Sturza (<a href='http://ipa-reader.xyz/?text=%CB%88st%C9%9Crz%C9
 
 Before working at Lockheed, I received my master's and bachelor's degrees in Computer Science at the University of Colorado Boulder in 2022 and 2021, respectively. I graduated with a minor in Applied Mathematics and summa cum laude honors in my undergraduate degree. I focused primarily on courses related to the intelligent systems sub-plan in my graduate degree. 
 
-Professionally, my interests are backend software development, DevOps, AI, machine learning, natural language processing, deep learning, and operations research. I typically enjoy topics focused on math, computer science, engineering, economics, and political science (particularly computational social choice and political economy). 
+Professionally, my interests are backend software development, DevOps, AI, machine learning, natural language processing, deep learning, and operations research. I typically enjoy topics focused on math, computer science, engineering, economics, and political science (particularly computational social choice, political economy, and urban planning). 
 
 I also enjoy playing soccer, skiing/snowboarding, cooking, listening to music, traveling, and playing video games in my free time.

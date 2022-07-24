@@ -9,10 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Cole  Sturza | blog</title>
+    <title>Cole  Sturza | Internet of things Device Dashboard</title>
     <meta name="author" content="Cole  Sturza" />
-    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-" />
+    <meta name="description" content="A software system for displaying IoT device data in real-time." />
     <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website" />
 
 
@@ -33,7 +32,7 @@
     <link rel="shortcut icon" href="/assets/img/favicon.png"/>
     
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="https://colesturza.github.io/blog/">
+    <link rel="canonical" href="https://colesturza.github.io/projects/iot-device-dashboard/">
     
     <!-- Dark Mode -->
     
@@ -68,13 +67,13 @@
 
               <!-- CV link -->
               <li class="nav-item ">
-                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="/assets/pdf/Cole_s_Resume.pdf">résumé</a></a>
+                <a class="nav-link" target="_blank" rel="noopener noreferrer" href="/assets/pdf/Cole_s_Resume.pdf">résumé</a>
               </li>
 
               
               <!-- Blog -->
-              <li class="nav-item active">
-                <a class="nav-link" href="/blog/">blog<span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                <a class="nav-link" href="/blog/">blog</a>
               </li>
 
               <!-- Other pages -->
@@ -89,95 +88,59 @@
 
     <!-- Content -->
     <div class="container mt-5">
-      <div class="post">
+      <!-- page.html -->
+        <div class="post">
 
-  <div class="header-bar">
-    <h1>blog</h1>
-    <h2>a place for me to post things about various topics</h2>
-  </div>
+          <header class="post-header">
+            <h1 class="post-title">Internet of things Device Dashboard</h1>
+            <p class="post-description">A software system for displaying IoT device data in real-time.</p>
+          </header>
 
+          <article>
+            <h3 id="tldr">TL;DR</h3>
+<p>I built and designed a system for collecting, storing, and viewing sensor data collected by IoT devices (such as an Arduino). The system utilizes an MQTT broker, Telegraf, InfluxDB, Grafana, and Docker Compose. The system is hosted on my server using Nginx to reverse proxy for various deployments. This project was used in a Senior Capstone project at the University of Colorado Boulder. The repository for the project can be found <a href="https://github.com/colesturza/iot-device-dashboard" target="_blank" rel="noopener noreferrer">here</a>.</p>
 
-  <ul class="post-list">
-    
+<h3 id="summary">Summary</h3>
+<p>This project was done in collaboration with one of my college roommates for his Senior Capstone in Aerospace at the University of Colorado Boulder. The requirements for this project were to create a scalable system for collecting, storing, and viewing data from Internet of Things (IoT) devices. There were budget constraints that prevented the final system from being hosted on AWS or Google Cloud. To make due we decided to host the system on a spare PC in our living room running Ubuntu. The PC hosts various other applications like Minecraft and Valheim servers. The PC uses Nginx to reverse proxy various requests to the several docker containers it is running. The primary components of the system are an MQTT Broker, Telegraf, InfluxDB, and Grafana.</p>
 
-    
-    
-    
-    
+<p>If you are unfamiliar with MQTT it was a protocol invented in 1999 by Andy Stanford-Clark and Arlen Nipper. Stanford-Clark and Nipper “needed a protocol for minimal battery loss and minimal bandwidth to connect with oil pipelines via satellite” <a href="https://www.hivemq.com/blog/mqtt-essentials-part-1-introducing-mqtt/" target="_blank" rel="noopener noreferrer">Source</a>. However, the primary focus of MQTT has now shifted “from proprietary embedded systems to open [IoT] use cases” <a href="https://www.hivemq.com/blog/mqtt-essentials-part-1-introducing-mqtt/" target="_blank" rel="noopener noreferrer">Source</a>.</p>
 
-    <li>
-      <h3>
-        
-          <a class="post-title" href="/blog/2022/i-cut-you-freeze-extension/">(WIP) A more Realistic Scoring Mechinism for the I-Cut-You-Freeze Protocol.</a>
-        
-      </h3>
-      <p>An overview of gerrymandering and various attempts to fix it, plus my proposed idea to add more realism to a protocol attempting to make redistricting fair.</p>
-      <p class="post-meta">
-        13 min read &nbsp; &middot; &nbsp;
-        July 23, 2022
-      </p>
-      <p class="post-tags">
-        <a href="/blog/2022">
-          <i class="fas fa-calendar fa-sm"></i> 2022 </a>
+<p>MQTT works on a publish/subscribe system. The IoT devices publish timestamped data to the MQTT broker via specified directories, for example, <code class="language-plaintext highlighter-rouge">/sensors/data/</code>. Telegraf is used to retrieve the data from the MQTT broker and store it in the InfluxDB database. The Telegraf instance subscribes to the <code class="language-plaintext highlighter-rouge">/sensors/data/</code> directory and receives all data published to it. This system works well for IoT devices because it allows you to scale the number of devices without having to tell them about the subscribers that need to receive the data. If a new subscriber is added to the system the code on the IoT devices need not change as the new subscriber will just tell the MQTT broker which data it wants.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/tag/math">
-              <i class="fas fa-hashtag fa-sm"></i> math</a> &nbsp;
-              
-            <a href="/blog/tag/computer-science">
-              <i class="fas fa-hashtag fa-sm"></i> computer-science</a> &nbsp;
-              
-            <a href="/blog/tag/computational-social-choice">
-              <i class="fas fa-hashtag fa-sm"></i> computational-social-choice</a> &nbsp;
-              
-            <a href="/blog/tag/political-science">
-              <i class="fas fa-hashtag fa-sm"></i> political-science</a> &nbsp;
-              
-            <a href="/blog/tag/algorithmic-economics">
-              <i class="fas fa-hashtag fa-sm"></i> algorithmic-economics</a> &nbsp;
-              
-            <a href="/blog/tag/optimized-democracy">
-              <i class="fas fa-hashtag fa-sm"></i> optimized-democracy</a> &nbsp;
-              
-            <a href="/blog/tag/social-choice">
-              <i class="fas fa-hashtag fa-sm"></i> social-choice</a> &nbsp;
-              
-            <a href="/blog/tag/gerrymandering">
-              <i class="fas fa-hashtag fa-sm"></i> gerrymandering</a> &nbsp;
-              
-            <a href="/blog/tag/redistricting">
-              <i class="fas fa-hashtag fa-sm"></i> redistricting</a> &nbsp;
-              
-            <a href="/blog/tag/cake-cutting">
-              <i class="fas fa-hashtag fa-sm"></i> cake-cutting</a> &nbsp;
-              
-          
+<p>The client can access the Grafana dashboard and view the data being published by the IoT devices. A domain name was created for the dashboard and Nginx listens on port 80 for the domain, the requests are reversed proxy-ed to the InfluxDB container. The MQTT Broker being a stream was not assigned a domain, also it is not to be accessed by anyone other than the IoT devices. The MQTT broker listens on port 1883. The MQTT broker is password protected so that only devices with authentication can publish and subscribe. Below is the architecture diagram for the project.</p>
 
-          
-          &nbsp; &middot; &nbsp;
-            
-            <a href="/blog/category/math-and-science-posts">
-              <i class="fas fa-tag fa-sm"></i> math-and-science-posts</a> &nbsp;
-              
-          
-    </p>
-    </li>
+<div class="row justify-content-sm-center">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
 
-    
-  </ul>
+  <picture>
+    <source media="(max-width: 480px)" srcset="/assets/img/iot-device-dashboard-480.webp"></source>
+    <source media="(max-width: 800px)" srcset="/assets/img/iot-device-dashboard-800.webp"></source>
+    <source media="(max-width: 1400px)" srcset="/assets/img/iot-device-dashboard-1400.webp"></source>
+    <!-- Fallback to the original file -->
+    <img class="img-fluid rounded z-depth-1" src="/assets/img/iot-device-dashboard.jpg" title="example image">
 
-  
+  </picture>
 
+</figure>
+
+    </div>
 </div>
+<div class="caption">
+    Architecture diagram for IoT device dashboard.
+</div>
+
+
+          </article>
+
+        </div>
 
     </div>
 
     <!-- Footer -->    
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        &copy; Copyright 2022 Cole  Sturza. Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+        © Copyright 2022 Cole  Sturza. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" target="_blank" rel="noopener noreferrer">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
 Last updated: July 24, 2022.
       </div>
     </footer>

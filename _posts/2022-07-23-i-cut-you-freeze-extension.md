@@ -1,6 +1,6 @@
 ---
 layout: distill
-title: A more Realistic Scoring Mechinism for the I-Cut-You-Freeze Protocol.
+title: (WIP) A more Realistic Scoring Mechinism for the I-Cut-You-Freeze Protocol.
 date: 2022-07-23
 description: An overview of gerrymandering and various attempts to fix it, plus my proposed idea to add a bit more realism to a protocol attempting to make redistricting more fair.
 tags: math computer-science computational-social-choice political-science algorithmic-economics optimized-democracy social-choice gerrymandering redistricting cake-cutting
@@ -40,7 +40,7 @@ Gerrymandering is the process of constructing districts in such a way as to give
 
 ## What are the implications of gerrymandering?
 
-At this point, you may be asking yourself, "how did we get here? Why are only two parties duking it out for a select number of seats?" The root cause of the problem is in how representatives are elected. As mentioned previously, members of the House of Representatives (and state legislatures) elect their officials via direct local elections held in single-member districts where winners are chosen via a plurality ruling (sometimes referred to as first-past-the-post). Gerrymandering and the two-party system are very much a by-product of this system. Within political science, Duverger's law states, "single-ballot plurality-rule elections (such as first-past-the-post) structured within single-member districts tend to favor a two-party system" (Wikipedia). Essentially, the system in place within the United States allows for minority parties with enough support to be grossly overrepresented. Once in power the ruling party is able to leverage gerrymandering while redistricting, leading to an even more unfair system where third parties are even more neglected. Eventually this leads to more strategic voting amongst voters to avoid the [spoiler effect](https://en.wikipedia.org/wiki/Vote_splitting) and the erosion of third parties. A very good resource to see why this is the case are these two videos by CGP Grey: ["Minority Rule: First Past the Post Voting"](https://www.youtube.com/watch?v=s7tWHJfhiyo), and ["Multiple Party Gerrymandering [Bonus Video]"](https://www.youtube.com/watch?v=uR2DfpjIuXo). 
+At this point, you may be asking yourself, "how did we get here? Why are only two parties duking it out for a select number of seats?" The root cause of the problem is in how representatives are elected. As mentioned previously, members of the House of Representatives (and state legislatures) elect their officials via direct local elections held in single-member districts where winners are chosen via a plurality ruling (sometimes referred to as first-past-the-post). Gerrymandering and the two-party system are very much a by-product of this system. Within political science, Duverger's law states, "single-ballot plurality-rule elections (such as first-past-the-post) structured within single-member districts tend to favor a two-party system" (Wikipedia). Essentially, the system in place within the United States allows for minority parties with enough support to be grossly overrepresented. Once in power the ruling party is able to leverage gerrymandering while redistricting, leading to an even more unfair system where third parties are even more neglected. Eventually this leads to more strategic voting amongst voters to avoid the [spoiler effect](https://en.wikipedia.org/wiki/Vote_splitting) and the erosion of third parties. Two very good resources to see why this is the case are these two videos by CGP Grey: ["Minority Rule: First Past the Post Voting"](https://www.youtube.com/watch?v=s7tWHJfhiyo), and ["Multiple Party Gerrymandering [Bonus Video]"](https://www.youtube.com/watch?v=uR2DfpjIuXo). 
 
 
 ## Gerrymandering in algorithmic economics.
@@ -55,11 +55,11 @@ Cake cutting aside, there are several metrics to detect gerrymandering in congre
 
 In contrast to using methods to simply determine the fairness of districting proposals that were chosen under existing legal standards, there have been various protocols introduced that attempt to solve gerrymandering by finding a balance between two opposing partisan interests. The goal is to create a protocol by which there is no need to evaluate the fairness of a proposal, as the proposal is inherently fair to some degree prescribed by the protocol itself.
 
-<d-cite key="landau2009fair"></d-cite> introduce a protocol that, following the nomenclature used by <d-cite key="silva2018analysis"></d-cite>, we shall refer to as the LRY protocol. The overarching idea is to have one party divide one portion of a state into districts according to their own preferences, while the other party divides the rest of the state into districts with their own goals in mind. The thought is that having each party control some amount of the state yields a higher degree of fairness and satisfaction than other existing methods.
+&#8203;<d-cite key="landau2009fair"></d-cite> introduce a protocol that, following the nomenclature used by <d-cite key="silva2018analysis"></d-cite>, we shall refer to as the LRY protocol. The overarching idea is to have one party divide one portion of a state into districts according to their own preferences, while the other party divides the rest of the state into districts with their own goals in mind. The thought is that having each party control some amount of the state yields a higher degree of fairness and satisfaction than other existing methods.
 
 Issues arise, however, upon closer analysis of the LRY protocol. Through the analysis of <d-cite key="silva2018analysis"></d-cite> it is seen that the results achieved by this protocol can be arbitrarily far from the geometric target. <d-cite key="landau2014fair"></d-cite> introduce the geometric target as a measure of fairness and is commonly used as a relaxation to the proportionality metric.
 
-<d-cite key="pegden2017partisan"></d-cite> proposed a protocol with proven fairer outcomes. First, some notation. The state is defined as an interval $[0,n]$ (where $n$ is the number of districts). An $n$*-districting* is a set of $n$ disjoint subsets of the interval, each of size 1. The idea of votes in favor of one party is referred to as *loyalty*. If party A has 58% of the vote in a particular district, they are said to have a loyalty in that district of 0.58. The measure of the subset of $[0,n]$ loyal to Player 1 is denoted as $s_{1}^{n}$, and the measure of the subset of $[0,n]$ loyal to Player 2 is denoted as $s_{2}^{n}$. The *slate* of a player is the outcome from a districting, representing the number of districts loyal to them.
+&#8203;<d-cite key="pegden2017partisan"></d-cite> proposed a protocol with proven fairer outcomes. First, some notation. The state is defined as an interval $[0,n]$ (where $n$ is the number of districts). An $n$*-districting* is a set of $n$ disjoint subsets of the interval, each of size 1. The idea of votes in favor of one party is referred to as *loyalty*. If party A has 58% of the vote in a particular district, they are said to have a loyalty in that district of 0.58. The measure of the subset of $[0,n]$ loyal to Player 1 is denoted as $s_{1}^{n}$, and the measure of the subset of $[0,n]$ loyal to Player 2 is denoted as $s_{2}^{n}$. The *slate* of a player is the outcome from a districting, representing the number of districts loyal to them.
 
 This protocol is structured such that two players take turns creating a $n$-districting and choosing which one of those $n$ districts they want to keep, or "freeze." That district is then frozen, the roles swap, and the process continues, using the unfrozen area as the state.
 
@@ -73,7 +73,7 @@ Let the unfrozen loyalties of Players 1 and 2 be $s_{1}^{(t)}$ and $s_{2}^{(t)}$
 
 # A more realistic scoring mechinism.
 
-One issue with the protocol above is that it assumes mapmakers are confortable with a narrow win. In reality this is not the case. To see this look at any of the state maps on [FiveThirtyEight](https://projects.fivethirtyeight.com/redistricting-maps/), you will see that a majority of districts are considered safe. Generally, districts drawn in the United States of America are drawn such that they are solidly Republican or Democrat, fewer districts slightly lean one way or the other, and an even smaller portion are competitive. Therefore, a general function $h:[0,1] \rightarrow [0,1]$ where $h(x)$ is the probability of winning a given district if you have x loyalty could be a more realistic choice for procedure 1. With a more general h function, the procedure output becomes the expected number of districts won by Player 1. A natural choice for this $h(x)$ function would be sigmoids of the form
+One issue with the protocol above is that it assumes mapmakers are confortable with a narrow win. In reality this is not the case. To see this look at any of the state maps on [FiveThirtyEight](https://projects.fivethirtyeight.com/redistricting-maps/), you will see that a majority of districts are considered safe. Generally, districts drawn in the United States of America are drawn such that they are solidly Republican or Democrat, fewer districts slightly lean one way or the other, and an even smaller portion are competitive. Therefore, a general nondecreasing function $h:[0,1] \rightarrow [0,1]$ where $h(x)$ is the probability of winning a given district if you have x loyalty could be a more realistic choice for procedure 1. With a more general h function, the procedure output becomes the expected number of districts won by Player 1. A natural choice for this $h(x)$ function would be sigmoids of the form
 
 $$
 h(x) = \frac{1}{1 + e^{-c(x - 0.5)}} ~ .
@@ -89,10 +89,42 @@ Where $c$ is a non-negative real number. Using the sigmoid function as our scori
 
 The original paper written as a final project for Rafael Frongillo's Algorithmic Economics class at the University of Colorado Boulder can be found [here](/assets/pdf/Frozen_Cake.pdf).
 
-## Proof 
+## Proof that procedure 2 is monotonically increasing w.r.t $s_{1}$.
+### *Proof by Induction:*
+Let the function $f(k, s_1, A)$ be the output of $\text{GAME}_{2}(k, s_1, A)$ when the two players are playing optimally. Let $h(x)$ be a general nondecreasing function such that $h:[0,1] \rightarrow [0,1]$. Lastly, let $$\mathcal{X}_k(s) = \{ x_1 \dots x_k : x_i \in [0, 1], \sum x_i = s \}$$. Then we have that
+
+$$
+\begin{align}
+    f(k, s_{1}, 1) &= \max_{x_{k,1},\dots,x_{k,k} \in \mathcal{X}_k(s_1)} \min_{i\in[k]}\left(f(k-1, s_{1}-x_{k, i}, 2) + h(x_{k, i})\right) ~ , \quad \text{and} \\
+    f(k, s_{1}, 2) &= \min_{x_{k,1},\dots,x_{k,k} \in \mathcal{X}_k(s_1)} \max_{i\in[k]}\left(f(k-1, s_{1}-x_{k, i}, 1) + h(x_{k, i})\right) ~ .
+\end{align}
+$$
+
+#### *Base Case:*
+
+Vascuous, $f(0, s_1, A) = f(0, 0, A) = 0$ by definition.
+
+#### *Inductive Hypothesis:*
+
+Fix $k$, $s_1$, and let $s_1 < s_1^\prime$. Let $$x_{k,1}^\star, \dots, x_{k,k}^\star$$ be the optimal set of choices in (1). Let $$x_{k,1}^\dagger, \dots, x_{k,k}^\dagger \in \mathcal{X}_k(s_1^\prime)$$ be the set of choices such that for all $i, ~ x_{k,i}^\star \leq x_{k,i}^\dagger$. 
+
+**Note:** for all $i$, $$s_{1} - x_{k,i}^\star \leq s_{1}^\prime - x_{k,i}^\dagger$$, put another way, $$s_1^\prime - s_1 = \sum_i x_{k,i}^\dagger - x_{k,i}^\star$$.
+
+#### *Inductive Step:*
+
+$$
+\begin{align*}
+    f(k, s_{1}, 1) &= \min_{i\in[k]}\left(f(k-1, s_{1}-x_{k, i}^\star, 2) + h(x_{k, i}^\star)\right) \\
+    &\leq \min_{i\in[k]}\left(\underset{\text{By the inductive hypothesis}}{f(k-1, s_{1}^\prime-x_{k, i}^\dagger, 2)} + \underset{\text{By the monotonicity of } h(x)}{h(x_{k, i}^\dagger)}\right) \\
+    &\leq \max_{x_{k,1},\dots,x_{k,k} \in \mathcal{X}_k(s_1^\prime)} \min_{i\in[k]}\left(f(k-1, s_1^\prime-x_{k, i}, 2) + h(x_{k, i})\right) \\
+    &= f(k, s_{1}^\prime, 1)
+\end{align*}
+$$
+
+Therefore, $f(k, s_{1}, A) \leq f(k, s_{1}^{\prime}, A)$ if $s_{1} < s_{1}^{\prime}$ via induction. **Q.E.D.**
 
 ## Author Contributions
 
-- **Rafael Frongillo:**  
+- **Rafael Frongillo:** Helped progess the idea past the intial project and greatly with the proof that procedure 2 is monotonically increasing w.r.t $s_{1}$.
 
 - **Alex Book:** Helped write a large portion the introduction and background sections. Was part of the initial project that spured the idea for this one.

@@ -1,7 +1,7 @@
 ---
 layout: distill
 title: A more Realistic Scoring Mechinism for the I-Cut-You-Freeze Protocol.
-date: 2022-07-30
+date: 2022-07-23
 description: An overview of gerrymandering and various attempts to fix it, plus my proposed idea to add a bit more realism to a protocol attempting to make redistricting more fair.
 tags: math computer-science computational-social-choice political-science algorithmic-economics optimized-democracy social-choice gerrymandering redistricting cake-cutting
 categories: math-and-science-posts
@@ -73,31 +73,23 @@ Let the unfrozen loyalties of Players 1 and 2 be $s_{1}^{(t)}$ and $s_{2}^{(t)}$
 
 # A more realistic scoring mechinism.
 
-One issue with the protocol above is that it assumes mapmakers are confortable with a narrow win. In reality this is not the case. To see this look at any of the state maps on [FiveThirtyEight](https://projects.fivethirtyeight.com/redistricting-maps/), you will see that a majority of districts are considered safe. Generally, districts drawn in the United States of America are drawn such that they are solidly Republican or Democrat, fewer districts slightly lean one way or the other, and an even smaller portion are competitive. A more realistic version of the protocol above could use a sigmoid as a scoring function to assign a more realistic value to a district. For those unaware, the sigmoid is defined as
+One issue with the protocol above is that it assumes mapmakers are confortable with a narrow win. In reality this is not the case. To see this look at any of the state maps on [FiveThirtyEight](https://projects.fivethirtyeight.com/redistricting-maps/), you will see that a majority of districts are considered safe. Generally, districts drawn in the United States of America are drawn such that they are solidly Republican or Democrat, fewer districts slightly lean one way or the other, and an even smaller portion are competitive. Therefore, a general function $h:[0,1] \rightarrow [0,1]$ where $h(x)$ is the probability of winning a given district if you have x loyalty could be a more realistic choice for procedure 1. With a more general h function, the procedure output becomes the expected number of districts won by Player 1. A natural choice for this $h(x)$ function would be sigmoids of the form
 
 $$
-\sigma(x) = \frac{1}{1 + e^{-x}} ~ .
-$$
-
-As is, the default definition of the sigmoid function is not very useful to procedure 1. Therefore, for the rest of this post the sigmoid will be defined as 
-
-$$
-\sigma(x) = \frac{1}{1 + e^{-c(x - 0.5)}} ~ .
+h(x) = \frac{1}{1 + e^{-c(x - 0.5)}} ~ .
 $$
 
 Where $c$ is a non-negative real number. Using the sigmoid function as our scoring mechanism, procedure 1 would become the following.
 
 {% include figure.html path="assets/img/i-cut-you-freeze-algorithm-non-geometric-sigmoid.png" %}
 
-**Remark:**
-
-The above function necessarily changes the original meaning of the output of the I-cut-you-freeze procedure. The original meaning was the number of districts won by Player 1, whereas the new meaning is akin to a utility, or how optimally Player 1 is utilizing their loyalty. This is due in part to partial-seats being awarded to players when a district is created. Thus, the above functions will produce a result that is less than or equal to what the original procedure would produce.
-
 ***
 
 # Appendix
 
 The original paper written as a final project for Rafael Frongillo's Algorithmic Economics class at the University of Colorado Boulder can be found [here](/assets/pdf/Frozen_Cake.pdf).
+
+## Proof 
 
 ## Author Contributions
 

@@ -70,7 +70,7 @@ This protocol is structured such that two players take turns creating a $n$-dist
 
 The game resultant from this protocol can be represented recursively as follows, where $k=n$, $s_{1} = s_{1}^{n}$, and $A=1$, returning the slate of Player 1:
 
-{% include figure.html path="assets/img/i-cut-you-freeze-algorithm-non-geometric.png" %} 
+{% include figure.liquid path="assets/img/i-cut-you-freeze-algorithm-non-geometric.png" %} 
 
 Let the unfrozen loyalties of Players 1 and 2 be $s_{1}^{(t)}$ and $s_{2}^{(t)}$, respectively, at the beginning of round $t$. The rounds begin at $n$ and count down to $0$, where the base case is defined as $\text{GAME}_{1}(0,0,A) = 0$. **Note:** the procedure always returns the slate of Player 1, even if $A = 2$.
 
@@ -86,17 +86,17 @@ $$
 
 Where $c$ is a non-negative real number. Using the sigmoid function as our scoring mechanism, procedure 1 would become the following.
 
-{% include figure.html path="assets/img/i-cut-you-freeze-algorithm-non-geometric-sigmoid.png" %}
+{% include figure.liquid path="assets/img/i-cut-you-freeze-algorithm-non-geometric-sigmoid.png" %}
 
 On property we would like to retain from the original procedure is that it is monotonically increasing with respect to $s_{1}$. It is important that any new I-cut-you-freeze procedure retain this property because with more loyalty your chances of winning more districts should only increase or stay the same. This is indead the case for any general nondecreasing function $h:[0,1] \rightarrow [0,1]$. The proof that any I-cut-you-freeze procedure using a general nondecreasing function $h:[0,1] \rightarrow [0,1]$ retains the monotonicity property is included in the appendix.  
 
 ## Empirical results.
 
-{% include figure.html path="assets/img/figure_one.png" %}
+{% include figure.liquid path="assets/img/figure_one.png" %}
 
-{% include figure.html path="assets/img/figure_two.png" %}
+{% include figure.liquid path="assets/img/figure_two.png" %}
 
-{% include figure.html path="assets/img/figure_three.png" %}
+{% include figure.liquid path="assets/img/figure_three.png" %}
 
 ***
 
